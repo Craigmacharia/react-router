@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { auth } from "./Firebase";
+import { auth } from "../../config/Firebase";
 import { NavLink, useNavigate } from "react-router-dom";
-import { FcGoogle } from 'react-icons/fc';
+import { FcGoogle } from 'react';
 
 const Login = () => {
   const navigate = useNavigate();

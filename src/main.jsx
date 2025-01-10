@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import "firebase/app"
-import { auth } from "./Firebase";
+import { auth } from "./config/Firebase.jsx";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 
