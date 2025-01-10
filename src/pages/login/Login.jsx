@@ -8,23 +8,23 @@ const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(""); // State for error messages
+  const [error, setError] = useState("");
 
   const onLogin = (e) => {
     e.preventDefault();
-    setError(""); // Clear previous error message
+    setError("");
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
+
         const user = userCredential.user;
         navigate("/");
         console.log(user);
       })
       .catch((error) => {
-        // Handle errors
+
         const errorCode = error.code;
         const errorMessage = getErrorMessage(errorCode);
-        setError(errorMessage); // Set the error message to display
+        setError(errorMessage);
         console.log(errorCode, errorMessage);
       });
   };
@@ -42,7 +42,6 @@ const Login = () => {
     }
   };
 
-  // Function to map Firebase error codes to user-friendly messages
   const getErrorMessage = (code) => {
     switch (code) {
       case "auth/invalid-email":

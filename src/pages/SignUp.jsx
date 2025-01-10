@@ -6,27 +6,27 @@ const Signup = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState(""); // State to handle errors
+    const [error, setError] = useState("");
     const onSubmit = async (e) => {
         e.preventDefault();
-        setError(""); // Clear previous errors
+        setError("");
 
         await createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                // Signed in
+
                 const user = userCredential.user;
                 console.log(user);
-                navigate("/login"); // Redirect to login after successful signup
+                navigate("/login");
             })
             .catch((error) => {
                 const errorCode = error.code;
-                const errorMessage = getErrorMessage(errorCode); // Map error codes to messages
-                setError(errorMessage); // Set error message
+                const errorMessage = getErrorMessage(errorCode);
+                setError(errorMessage);
                 console.log(errorCode, errorMessage);
             });
     };
 
-    // Function to map Firebase error codes to user-friendly messages
+
     const getErrorMessage = (code) => {
         switch (code) {
             case "auth/email-already-in-use":
